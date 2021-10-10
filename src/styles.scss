@@ -82,6 +82,22 @@ body {
             border-radius: 12px;   
             background-color: #1A1B1C;     
         }
+        .edition {
+            width: 90%;
+            margin: 0px auto;
+            opacity:  0;
+            transition: all 300ms;
+            label {
+                display: block;
+                width: max-content;
+                margin: 0px auto;
+                margin-top: 20px;
+                margin-bottom: 2px;
+            }
+            .buttons {
+                display: flex;
+            }
+        }
     }
     aside:hover {
         width: 300px;
@@ -104,6 +120,9 @@ body {
             h5 {
                 opacity: 1;
             }
+        }
+        .edition {
+            opacity: 1;
         }
     }
     .main {

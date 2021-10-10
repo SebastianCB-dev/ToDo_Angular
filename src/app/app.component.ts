@@ -15,10 +15,11 @@ export class AppComponent {
 
   tasks: Task[] = [];
   input: string = '';
-
+  username: string = 'User';
+  userEditing: string = '';
   showMain: boolean = true;
   isError: boolean = false;
-
+  isEditing: boolean = false;
   agregarTarea() {
     this.showMain = false;
     this.isError = false;
@@ -37,5 +38,19 @@ export class AppComponent {
     this.input = '';
   }
 
+  modeEditionProfile() {
+    this.isEditing = true;
+  }
 
+  guardarName() {
+      if(this.userEditing.length != 0) {
+        this.username = this.userEditing;
+        this.userEditing = '';
+        this.isEditing = false;
+      }
+  }
+
+  cancelar() {
+    this.isEditing = false;
+  }
 }

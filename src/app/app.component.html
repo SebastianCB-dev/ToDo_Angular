@@ -4,10 +4,21 @@
 
   <aside class="color-layout">
     <img src="https://www.focusedu.org/wp-content/uploads/2018/12/circled-user-male-skin-type-1-2.png" class="user-image">
-    <p>User</p>
-    <button class="btn btn-primary">Editar</button>
-    <div class="edition">
-
+    <p>{{ username }}</p>
+    <button class="btn btn-primary"
+            (click)="modeEditionProfile()">Editar</button>
+    <div class="edition"
+        *ngIf="isEditing">
+      <label>Nombre: </label>
+      <input [(ngModel)]="userEditing"
+             type="text"
+             class="form-control">
+      <div class="buttons">
+        <button class="btn btn-success"
+                (click)="guardarName()">Guardar</button>
+        <button class="btn btn-danger"
+                (click)="cancelar()">Cancelar</button>
+      </div>
     </div>
     <div class="option-car">
       <img src="https://images.vexels.com/media/users/3/140528/isolated/preview/669972133494bf3994d706dedf165f90-icono-de-ronda-de-inicio-1.png">
