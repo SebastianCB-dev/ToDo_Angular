@@ -1,9 +1,14 @@
-.container-flex{ 
-    display: flex; 
+.general {
     margin: 0px;
-    padding: 0px;   
-    .task {
-        width: 95%;
+    padding: 0px;
+    .container-flex{ 
+        width: 100%;
+        display: flex; 
+        margin: 0px;
+        padding: 0px;   
+        .task {
+            width: 95%;
+        }
     }
 }
     
