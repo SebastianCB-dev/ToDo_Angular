@@ -1,83 +1,8 @@
 <!-- SideBar -->
-
-<div class="container-fluid general">
-
-  <aside class="color-layout">
-    <img src="https://www.focusedu.org/wp-content/uploads/2018/12/circled-user-male-skin-type-1-2.png" class="user-image">
-    <p>{{ username }}</p>
-    <button class="btn btn-primary"
-            (click)="modeEditionProfile()">Editar</button>
-    <div class="edition"
-        *ngIf="isEditing">
-      <label>Nombre: </label>
-      <input [(ngModel)]="userEditing"
-             type="text"
-             class="form-control">
-      <div class="buttons">
-        <button class="btn btn-success"
-                (click)="guardarName()">Guardar</button>
-        <button class="btn btn-danger"
-                (click)="cancelar()">Cancelar</button>
-      </div>
+<div class="container-fluid">
+    <div class="container-flex">
+        <app-sidebar></app-sidebar>
+        <router-outlet></router-outlet>
     </div>
-    <div class="option-car">
-      <img src="https://images.vexels.com/media/users/3/140528/isolated/preview/669972133494bf3994d706dedf165f90-icono-de-ronda-de-inicio-1.png">
-      <h5>Inicio</h5>
-    </div>
-    <div class="option-car">
-      <img src="https://images.vexels.com/media/users/3/200060/isolated/preview/e39eb7217c7b5157d2c9154564d76598-icono-de-carrito-de-compras-rosa.png">
-      <h5>Comestibles</h5>
-    </div>  
-    <div class="option-car">
-      <img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png">
-      <h5>GitHub</h5>
-    </div>  
-
-    
-  </aside>
-
-  <section class="main color-layout">
-    <h1>To Do</h1>
-    <h2>By: Sebastian Carrillo</h2>
-    <div class="add-task">
-      <div class="info-add" *ngIf="showMain">
-        <button class="btn btn-primary btn-add" (click)="agregarTarea()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square"
-            viewBox="0 0 16 16">
-            <path
-              d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z">
-            </path>
-            <path
-              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z">
-            </path>
-          </svg>
-          Add Task
-
-        </button>
-      </div>
-      <div class="input-group mb-3 input-add" *ngIf="!showMain">
-        <input [(ngModel)]="input" type="text" class="form-control" placeholder="Do anything...">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon3"><i>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-              </svg>
-        </i></button>
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="addNewTask()">Add</button>
-      </div>
-    </div>
-    <div *ngIf="isError"
-         class="alert alert-danger message-error">
-        Add a description to task!!!
-    </div>
-    <div class="tasks">
-        <div class="task"
-            *ngFor="let task of tasks">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-            <div class="description">
-                <p>{{ task.description }}</p>
-                <i>{{ task.fecha }}</i>
-            </div>
-        </div>
-    </div>
-  </section>
 </div>
+
