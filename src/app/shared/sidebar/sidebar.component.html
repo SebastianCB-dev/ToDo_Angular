@@ -1,5 +1,5 @@
 <aside class="color-layout">
-    <img [src]="srcImage" class="user-image">
+    <img [src]="this.getSantizeUrl(srcImage)" class="user-image">
     <p>{{ username }}</p>
     <button class="btn btn-primary"
             (click)="modeEditionProfile()">Edit</button>
@@ -19,15 +19,18 @@
                 (click)="cancelar()">Cancel</button>
       </div>
     </div>
-    <div class="option-car">
+    <div class="option-car"
+         routerLink="">
       <img src="https://images.vexels.com/media/users/3/140528/isolated/preview/669972133494bf3994d706dedf165f90-icono-de-ronda-de-inicio-1.png">
       <h5>Home</h5>
     </div>
-    <div class="option-car">
+    <div class="option-car"
+         routerLink="comestibles">
       <img src="https://images.vexels.com/media/users/3/200060/isolated/preview/e39eb7217c7b5157d2c9154564d76598-icono-de-carrito-de-compras-rosa.png">
       <h5>Store</h5>
     </div>  
-    <div class="option-car">
+    <div class="option-car"
+         (click)="irAlRepositorio">
       <img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png">
       <h5>GitHub</h5>
     </div>  

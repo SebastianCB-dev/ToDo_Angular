@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -28,11 +28,21 @@ export class SidebarComponent implements OnInit {
         this.srcImage = this.file;
       }
   }
-  constructor() { }
+  public getSantizeUrl(url : string) {
+    return this.sanitization.bypassSecurityTrustUrl(url);
+  }
+
+  constructor(private sanitization:DomSanitizer) { }
 
   ngOnInit(): void {
   }
+
   cancelar() {
     this.isEditing = false;
   }
+
+  irAlRepositorio() {
+    window.open('https://github.com/SebastianCB-dev/ToDo_Angular','_blank');
+  }
+
 }
