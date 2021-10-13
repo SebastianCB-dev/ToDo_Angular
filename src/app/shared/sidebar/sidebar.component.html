@@ -1,5 +1,5 @@
 <aside class="color-layout">
-    <img [src]="this.getSantizeUrl(srcImage)" class="user-image">
+    <img [src]="srcImage" class="user-image">
     <p>{{ username }}</p>
     <button class="btn btn-primary"
             (click)="modeEditionProfile()">Edit</button>
@@ -9,9 +9,6 @@
       <input [(ngModel)]="userEditing"
              type="text"
              class="form-control">
-      <input type="file" name="myImage" accept="image/png, image/jpeg"
-             class="form-control image"
-             [(ngModel)]="file" />
       <div class="buttons">
         <button class="btn btn-success"
                 (click)="guardarOptions()">Save</button>
@@ -30,7 +27,7 @@
       <h5>Store</h5>
     </div>  
     <div class="option-car"
-         (click)="irAlRepositorio">
+         (click)="irAlRepositorio()">
       <img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png">
       <h5>GitHub</h5>
     </div>  
