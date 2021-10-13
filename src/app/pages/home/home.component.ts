@@ -14,7 +14,7 @@ interface Task {
 })
 export class HomeComponent implements OnInit {
 
-
+  user: string = 'User';
   showMain: boolean = true;
   isError: boolean = false;
   input: string = '';

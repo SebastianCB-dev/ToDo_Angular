@@ -2,7 +2,7 @@
     <img [src]="srcImage" class="user-image">
     <p>{{ username }}</p>
     <button class="btn btn-primary"
-            (click)="modeEditionProfile()">Edit</button>
+            (click)="modeEditionProfile()">Edit ✏️</button>
     <div class="edition"
         *ngIf="isEditing">
       <label>Name: </label>
@@ -11,9 +11,9 @@
              class="form-control">
       <div class="buttons">
         <button class="btn btn-success"
-                (click)="guardarOptions()">Save</button>
+                (click)="guardarOptions()">Save 💾</button>
         <button class="btn btn-danger"
-                (click)="cancelar()">Cancel</button>
+                (click)="cancelar()">Cancel ❌</button>
       </div>
     </div>
     <div class="option-car"
