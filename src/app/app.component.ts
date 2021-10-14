@@ -1,4 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
+import { interval } from 'rxjs';
 
 
 
@@ -9,6 +10,13 @@ import { Component, ViewChild } from '@angular/core';
 })
 export class AppComponent {
 
-  
+ username: string = "User";
+
+ constructor() {   
+ }
+
+ cambiarUser(user: string) {
+  this.username = user;
+ }
 
 }

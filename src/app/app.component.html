@@ -1,8 +1,9 @@
 <!-- SideBar -->
 <div class="container-fluid general">
     <div class="container-flex">
-        <app-sidebar></app-sidebar>
+        <app-sidebar (userEmit)="cambiarUser($event)"></app-sidebar>
         <div class="task">
+            <app-title [username]="username"></app-title>
             <router-outlet></router-outlet>
         </div>
     </div>

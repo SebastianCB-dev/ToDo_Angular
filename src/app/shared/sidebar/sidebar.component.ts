@@ -1,6 +1,6 @@
 
-import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,6 +10,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class SidebarComponent implements OnInit {
 
   username: string = 'User';
+  @Output() userEmit = new EventEmitter<string>();
   srcImage: SafeResourceUrl = 'https://www.pngrepo.com/png/133681/512/doormat.png';
   isEditing: boolean = false;
   userEditing: string = '';
@@ -19,19 +20,23 @@ export class SidebarComponent implements OnInit {
   modeEditionProfile() {
     this.isEditing = true;
   }
-
+  
  guardarOptions() {
       if(this.userEditing.length != 0) {
         this.username = this.userEditing;
+        this.userEmit.emit(this.username);        
         this.userEditing = '';
         this.isEditing = false;
       }      
   }
   
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor() {
+    this.userEmit.emit('User');
+   }
 
   ngOnInit(): void {
+    
   }
 
   cancelar() {

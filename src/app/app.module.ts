@@ -7,13 +7,15 @@ import { HomeComponent } from './pages/home/home.component';
 import { ComestiblesComponent } from './pages/comestibles/comestibles.component';
 import { RoutingRoutingModule } from './routing-routing.module';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { TitleComponent } from './shared/title/title.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ComestiblesComponent,
-    SidebarComponent
+    SidebarComponent,
+    TitleComponent
   ],
   imports: [
     BrowserModule,
