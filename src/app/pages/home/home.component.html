@@ -10,14 +10,13 @@
           ➕ Add Task
         </button>
       </div>
-      <div class="input-group mb-3 input-add" *ngIf="!showMain">
-        <input [(ngModel)]="input" type="text" class="form-control" placeholder="Do anything...">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon3"><i>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-              </svg>
-        </i></button>
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="addNewTask()">Add ➕</button>
+      <div class="mb-3 input-add" *ngIf="!showMain">
+        <input [(ngModel)]="input" type="text" class="form-control input-task" placeholder="Do anything...">
+        <div class="options">          
+          <input placeholder="📅" class="date-picker form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" [(ngModel)]="fechaPick"      
+                  [min]="traerFecha()"/>                   
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="addNewTask()">Add ➕</button>
+        </div>
       </div>
     </div>
     <div *ngIf="isError"

@@ -19,9 +19,7 @@ export class HomeComponent implements OnInit {
   isError: boolean = false;
   input: string = '';
   tasks: Task[] = [];
-
-
-
+  fechaPick: string = '';
   agregarTarea() {
     this.showMain = false;
     this.isError = false;
@@ -32,16 +30,27 @@ export class HomeComponent implements OnInit {
     if(this.input == '') {
       this.isError = true;
       return;
-    }    
-    this.tasks.push({
-      description: this.input,
-      fecha: '11/04/2021'
+    } 
+    if( !this.fechaPick ) {
+      this.fechaPick = this.traerFecha();
+    }           
+     this.tasks.push({
+       description: this.input,
+       fecha: this.fechaPick
     });
     this.input = '';
+    this.fechaPick = '';
+    
   }
-  constructor() { }
+  constructor() {    
+  }
 
   ngOnInit(): void {
+    
+  }
+
+  traerFecha() {
+    return (new Date().getFullYear())+ '-' + (new Date().getMonth() + 1) + '-' +  (new Date().getDate());
   }
 
 }

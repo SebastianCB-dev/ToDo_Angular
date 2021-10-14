@@ -31,6 +31,24 @@
         overflow: hidden;
         .input-add {
             height: 50px;
+            display: flex;
+            justify-content: space-between;
+            .options {
+                width: 180px;
+                display: flex;
+                .date-picker {
+                    width: 50px;
+                    border-left: 1px solid #ccc;
+                    transition: all 300ms;
+                    cursor: pointer;
+                }
+                .date-picker:hover{ 
+                    background: #6c757d;
+                }
+                button {
+                    width: 110px;
+                }
+            }
             input {                    
                 background-color: #1F1F20;
                 outline: none;
