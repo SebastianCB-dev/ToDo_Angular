@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   tasks: Task[] = [];
   fechaPick: string = '';
   message: string = '';
+  idTask: number = 0;
 
   agregarTarea() {
     this.showMain = false;
@@ -35,8 +36,8 @@ export class HomeComponent implements OnInit {
       this.input = '';
       return;
     } 
-    if(this.input.length > 50) {
-      this.message = 'The description is very long (max length = 50)';
+    if(this.input.length > 70) {
+      this.message = 'The description is very long (max length = 70)';
       this.isError = true;
       this.input = '';
       return;
@@ -50,6 +51,7 @@ export class HomeComponent implements OnInit {
     });
     this.input = '';
     this.fechaPick = '';
+    this.idTask++;
     
   }
   constructor() {    
@@ -61,6 +63,12 @@ export class HomeComponent implements OnInit {
 
   traerFecha() {
     return (new Date().getFullYear())+ '-' + (new Date().getMonth() + 1) + '-' +  (new Date().getDate());
+  }
+
+
+  eliminarTarea(id: number) {
+    console.log(id);
+    this.tasks.splice(id,1);
   }
 
 }
