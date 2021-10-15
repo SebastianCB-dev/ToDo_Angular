@@ -91,13 +91,47 @@
             padding-left: 25px;
             padding-right: 25px;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             margin-top: 15px;                
             .description {
-                width: 98%;
-                display: flex;
-                justify-content: space-between;
+                width: 98%;    
+                display: flex; 
+                p {
+                    overflow: hidden;
+                }
+                i {
+                    margin-left: auto;
+                    height: fit-content;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                }
+                button {                    
+                    margin-left: 25px;    
+                    position: relative;
+                    top: -9px;
+                    width: 50px;
+                    height: 40px;
+                    text-align: center;
+                    background-color: rgba(255, 0, 0, 0.26);
+                    opacity: 0;
+                    transition: all 500ms;
+                    margin-bottom: auto;
+                    margin-top: auto;
+                }
+                          
             }
+            input {
+                margin-right: 20px;
+            }
+
+        }
+        .task:hover {
+            .description {
+                button {
+                    opacity: 1;
+                }
+            }
+            
         }
         
     }

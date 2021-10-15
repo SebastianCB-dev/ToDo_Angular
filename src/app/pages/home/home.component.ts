@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
   input: string = '';
   tasks: Task[] = [];
   fechaPick: string = '';
+  message: string = '';
+
   agregarTarea() {
     this.showMain = false;
     this.isError = false;
@@ -28,9 +30,17 @@ export class HomeComponent implements OnInit {
   addNewTask() {
     this.showMain = true;
     if(this.input == '') {
+      this.message = 'Add a description!';
       this.isError = true;
+      this.input = '';
       return;
     } 
+    if(this.input.length > 50) {
+      this.message = 'The description is very long (max length = 50)';
+      this.isError = true;
+      this.input = '';
+      return;
+    }
     if( !this.fechaPick ) {
       this.fechaPick = this.traerFecha();
     }           

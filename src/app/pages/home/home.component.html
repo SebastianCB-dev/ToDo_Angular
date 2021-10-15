@@ -16,7 +16,7 @@
     </div>
     <div *ngIf="isError"
          class="alert alert-danger message-error">
-         🤦‍♂️ Add a description to task!!! 🤦‍♀️
+         🤦‍♂️ {{ message }} 🤦‍♀️
     </div>
     <div class="tasks">
         <div class="task"
@@ -25,6 +25,7 @@
             <div class="description">
                 <p>{{ task.description }}</p>
                 <i>{{ task.fecha }}</i>
+                <button class="btn btn-danger">❌</button>
             </div>
         </div>
     </div>
