@@ -67,7 +67,6 @@ export class HomeComponent implements OnInit {
 
 
   eliminarTarea(id: number) {
-    console.log(id);
     this.tasks.splice(id,1);
   }
 
