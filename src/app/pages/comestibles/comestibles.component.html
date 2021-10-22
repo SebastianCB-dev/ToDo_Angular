@@ -1,1 +1,33 @@
-<p>comestibles works!</p>
+<section class="main color-layout">   
+    <div class="add-eatable">      
+      <div class="info-add" *ngIf="showMain">
+        <button class="btn btn-primary btn-add" (click)="addEatable()">
+          ➕ Add Eatable
+        </button>
+      </div>
+      <div class="mb-3 input-add" *ngIf="!showMain">
+        <input [(ngModel)]="input" type="text" class="form-control input-eatable" placeholder="Do anything...">
+        <div class="options">          
+          <input class="date-picker form-control" type="number" id="date" min=1 value="1" />                   
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="addNewEatable()">Add ➕</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isError"
+         class="alert alert-danger message-error">
+         🤦‍♂️ {{ message }} 🤦‍♀️
+    </div>
+    <div class="groseries">
+        <div class="eatable"
+            *ngFor="let eatable of groseries; let i = index">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+            <div class="description">
+                <p>{{ eatable.product }}</p>
+                <i>{{ eatable.amount }}</i>
+                <button class="btn btn-danger"
+                        (click)="deleteEatable(i)">❌</button>
+            </div>
+        </div>
+    </div>
+  </section>
+
