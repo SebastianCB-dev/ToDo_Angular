@@ -17,7 +17,7 @@ export class ComestiblesComponent implements OnInit {
   isError: boolean = false;
   input: string = '';
   groseries: Eatable[] = [];
-  amount: string = '';
+  amount: string = '1';
   message: string = '';
   idEatable: number = 0;
 
@@ -39,13 +39,20 @@ export class ComestiblesComponent implements OnInit {
       this.isError = true;
       this.input = '';
       return;
-    }             
+    } 
+    if(isNaN(parseInt(this.amount))){
+      this.message = 'The amount require a number!';
+      this.isError = true;
+      this.input = '';
+      return;
+    }
+              
      this.groseries.push({
        product: this.input,
        amount: parseInt(this.amount)
     });
     this.input = '';
-    this.amount = '';
+    this.amount = '1';
     this.idEatable++;    
   }
   constructor() {    
