@@ -44,6 +44,7 @@ export class ComestiblesComponent implements OnInit {
       this.message = 'The amount require a number!';
       this.isError = true;
       this.input = '';
+      this.amount = '1';
       return;
     }
               
