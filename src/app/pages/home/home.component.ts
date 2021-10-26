@@ -3,7 +3,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 interface Task {
   description: string,
-  fecha: string
+  fecha: string,
+  completed: boolean;
 }
 
 
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
   user: string = 'User';
   showMain: boolean = true;
   isError: boolean = false;
+  complete: boolean = false;
   input: string = '';
   tasks: Task[] = [];
   fechaPick: string = '';
@@ -47,7 +49,8 @@ export class HomeComponent implements OnInit {
     }           
      this.tasks.push({
        description: this.input,
-       fecha: this.fechaPick
+       fecha: this.fechaPick,
+       completed: this.complete
     });
     this.input = '';
     this.fechaPick = '';
@@ -68,6 +71,11 @@ export class HomeComponent implements OnInit {
 
   eliminarTarea(id: number) {
     this.tasks.splice(id,1);
+  }
+
+  completarTarea( id: number ){
+    this.tasks[id].completed = !this.tasks[id].completed;
+    console.log(this.tasks[id].completed );
   }
 
 }
