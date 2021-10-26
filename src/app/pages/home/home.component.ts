@@ -14,7 +14,7 @@ interface Task {
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  music = new Audio('../../../assets/sounds/task_completed.mp3');
   user: string = 'User';
   showMain: boolean = true;
   isError: boolean = false;
@@ -75,7 +75,17 @@ export class HomeComponent implements OnInit {
 
   completarTarea( id: number ){
     this.tasks[id].completed = !this.tasks[id].completed;
-    console.log(this.tasks[id].completed );
+    if( this.tasks[id].completed ) {
+      // Emitir Sonido
+      this.emitirSonido();
+    }
+    
+  }
+
+  emitirSonido() {
+    this.music.pause();
+    this.music.currentTime = 0;
+    this.music.play();
   }
 
 }
