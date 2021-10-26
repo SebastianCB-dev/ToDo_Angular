@@ -21,8 +21,7 @@
     <div class="tasks">
         <div class="task"
             *ngFor="let task of tasks; let i = index">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                  [(ngModel)]="complete"
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"                  
                   (click)="completarTarea(i)">
             <div class="description">
                 <p>{{ task.description }}</p>

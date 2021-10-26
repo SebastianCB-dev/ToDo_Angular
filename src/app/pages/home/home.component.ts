@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   user: string = 'User';
   showMain: boolean = true;
   isError: boolean = false;
-  complete: boolean = false;
   input: string = '';
   tasks: Task[] = [];
   fechaPick: string = '';
@@ -50,7 +49,7 @@ export class HomeComponent implements OnInit {
      this.tasks.push({
        description: this.input,
        fecha: this.fechaPick,
-       completed: this.complete
+       completed: false
     });
     this.input = '';
     this.fechaPick = '';
