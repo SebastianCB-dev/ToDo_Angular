@@ -40,8 +40,15 @@ export class ComestiblesComponent implements OnInit {
       this.input = '';
       return;
     } 
-    if(isNaN(parseInt(this.amount))){
+    if(isNaN(parseInt(this.amount)) ){
       this.message = 'The amount require a number!';
+      this.isError = true;
+      this.input = '';
+      this.amount = '1';
+      return;
+    }
+    if(parseInt(this.amount) < 0 ) {
+      this.message = 'The amount require a positive number!';
       this.isError = true;
       this.input = '';
       this.amount = '1';
