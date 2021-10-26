@@ -84,6 +84,7 @@ export class HomeComponent implements OnInit {
   emitirSonido() {
     this.music.pause();
     this.music.currentTime = 0;
+    this.music.volume = 0.3;
     this.music.play();
   }
 

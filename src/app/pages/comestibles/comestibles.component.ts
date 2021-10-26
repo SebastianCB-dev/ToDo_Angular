@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 interface Eatable {
-  product: string,
-  amount : number
+  product: string;
+  amount : number;
+  completed: boolean;
 }
 
 @Component({
@@ -11,7 +12,7 @@ interface Eatable {
   styleUrls: ['./comestibles.component.scss']
 })
 export class ComestiblesComponent implements OnInit {
-
+  music = new Audio('../../../assets/sounds/task_completed.mp3');
   user: string = 'User';
   showMain: boolean = true;
   isError: boolean = false;
@@ -57,7 +58,8 @@ export class ComestiblesComponent implements OnInit {
               
      this.groseries.push({
        product: this.input,
-       amount: parseInt(this.amount)
+       amount: parseInt(this.amount),
+       completed: false
     });
     this.input = '';
     this.amount = '1';
@@ -72,6 +74,19 @@ export class ComestiblesComponent implements OnInit {
 
   deleteEatable(id: number) {
     this.groseries.splice(id,1);
+  }
+  completarComestible(id: number ){
+    this.groseries[id].completed = !this.groseries[id].completed;
+    if( this.groseries[id].completed ) {
+      // Emitir Sonido
+      this.emitirSonido();
+    }
+  }
+  emitirSonido() {
+    this.music.pause();
+    this.music.currentTime = 0;
+    this.music.volume = 0.3;
+    this.music.play();
   }
 
 }
