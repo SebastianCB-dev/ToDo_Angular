@@ -37,10 +37,11 @@
                 width: 180px;
                 display: flex;
                 .date-picker {
-                    width: 50px;
+                    width: 80px;
                     border-left: 1px solid #ccc;
                     transition: all 300ms;
                     cursor: pointer;
+                    user-select: none;
                 }
                 .date-picker:hover{ 
                     background: #6c757d;
