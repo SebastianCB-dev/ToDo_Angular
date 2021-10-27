@@ -78,6 +78,7 @@ export class HomeComponent implements OnInit {
       // Emitir Sonido
       this.emitirSonido();
     }
+    this.ordenarTareas();
     
   }
 
@@ -86,6 +87,23 @@ export class HomeComponent implements OnInit {
     this.music.currentTime = 0;
     this.music.volume = 0.3;
     this.music.play();
+  }
+
+  isCompleted( id: number ): string {
+    if(this.tasks[id].completed) {
+      return 'completed';
+    }
+    else {
+      return '';
+    }
+  }
+
+  ordenarTareas() {
+    this.tasks.sort( function(x, y) {
+      return (x.completed === y.completed)? 0 : -1;
+      
+    })
+    console.log(this.tasks)
   }
 
 }

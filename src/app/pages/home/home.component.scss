@@ -93,7 +93,10 @@
             padding-right: 25px;
             display: flex;
             justify-content: space-between;
-            margin-top: 15px;                
+            margin-top: 15px; 
+            .completed {
+                text-decoration: line-through;
+            }               
             .description {
                 width: 98%;    
                 display: flex; 
