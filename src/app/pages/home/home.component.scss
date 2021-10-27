@@ -97,7 +97,11 @@
             margin-top: 15px; 
             .completed {
                 text-decoration: line-through;
-            }               
+            }        
+            .form-check-input {
+                background-color: #000;
+                border: 2px solid #ccc;
+            }       
             .description {
                 width: 98%;    
                 display: flex; 
