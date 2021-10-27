@@ -45,16 +45,17 @@ export class HomeComponent implements OnInit {
     }
     if( !this.fechaPick ) {
       this.fechaPick = this.traerFecha();
-    }           
+    } 
+    this.tasks.reverse();          
      this.tasks.push({
        description: this.input,
        fecha: this.fechaPick,
        completed: false
     });
+    this.tasks.reverse();
     this.input = '';
     this.fechaPick = '';
-    this.idTask++;
-    
+    this.idTask++;    
   }
   constructor() {    
   }
@@ -78,8 +79,7 @@ export class HomeComponent implements OnInit {
       // Emitir Sonido
       this.emitirSonido();
     }
-    this.ordenarTareas();
-    
+    this.ordenarTareas();    
   }
 
   emitirSonido() {
@@ -99,11 +99,10 @@ export class HomeComponent implements OnInit {
   }
 
   ordenarTareas() {
-    this.tasks.sort( function(x, y) {
-      return (x.completed === y.completed)? 0 : -1;
-      
-    })
-    console.log(this.tasks)
+    this.tasks.sort( function(x, y) {   
+      return (x.completed === y.completed)? 0 : x.completed? -1 : 1;
+    })    
+    this.tasks.reverse();
   }
 
 }
