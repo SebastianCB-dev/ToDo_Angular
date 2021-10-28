@@ -15,6 +15,8 @@ interface Task {
 })
 export class HomeComponent implements OnInit {
   music = new Audio('../../../assets/sounds/task_completed.mp3');
+  musicError = new Audio('../../../assets/sounds/delete.mp3');
+  musicAdd = new Audio('../../../assets/sounds/add.mp3');
   user: string = 'User';
   showMain: boolean = true;
   isError: boolean = false;
@@ -53,6 +55,7 @@ export class HomeComponent implements OnInit {
        completed: false
     });
     this.tasks.reverse();
+    this.emitirSonidoAgregarTarea();
     this.input = '';
     this.fechaPick = '';
     this.idTask++;    
@@ -71,22 +74,35 @@ export class HomeComponent implements OnInit {
 
   eliminarTarea(id: number) {
     this.tasks.splice(id,1);
+    this.emitirSonidoeliminarTarea();
   }
 
   completarTarea( id: number ){
     this.tasks[id].completed = !this.tasks[id].completed;
     if( this.tasks[id].completed ) {
       // Emitir Sonido
-      this.emitirSonido();
+      this.emitirSonidoCompletarTarea();
     }
     this.ordenarTareas();    
   }
-
-  emitirSonido() {
+  emitirSonidoAgregarTarea() {
+    
+    this.musicAdd.pause();
+    this.musicAdd.currentTime = 0;
+    this.musicAdd.volume = 0.3;
+    this.musicAdd.play();
+  }
+  emitirSonidoCompletarTarea() {
     this.music.pause();
     this.music.currentTime = 0;
     this.music.volume = 0.3;
     this.music.play();
+  }
+  emitirSonidoeliminarTarea() {
+    this.musicError.pause();
+    this.musicError.currentTime = 0;
+    this.musicError.volume = 0.8;
+    this.musicError.play();
   }
 
   isCompleted( id: number ): string {
