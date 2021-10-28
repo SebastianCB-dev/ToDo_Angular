@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 interface Task {
@@ -6,7 +6,6 @@ interface Task {
   fecha: string,
   completed: boolean;
 }
-
 
 @Component({
   selector: 'app-home',
