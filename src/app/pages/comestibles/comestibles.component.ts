@@ -13,6 +13,8 @@ interface Eatable {
 })
 export class ComestiblesComponent implements OnInit {
   music = new Audio('../../../assets/sounds/task_completed.mp3');
+  musicError = new Audio('../../../assets/sounds/delete.mp3');
+  musicAdd = new Audio('../../../assets/sounds/add.mp3');
   user: string = 'User';
   showMain: boolean = true;
   isError: boolean = false;
@@ -55,12 +57,14 @@ export class ComestiblesComponent implements OnInit {
       this.amount = '1';
       return;
     }
-              
+    this.groseries.reverse();       
      this.groseries.push({
        product: this.input,
        amount: parseInt(this.amount),
        completed: false
     });
+    this.groseries.reverse();
+    this.emitirSonidoAgregarComestible();
     this.input = '';
     this.amount = '1';
     this.idEatable++;    
@@ -74,6 +78,7 @@ export class ComestiblesComponent implements OnInit {
 
   deleteEatable(id: number) {
     this.groseries.splice(id,1);
+    this.emitirSonidoeliminarComestible();
   }
   completarComestible(id: number ){
     this.groseries[id].completed = !this.groseries[id].completed;
@@ -81,6 +86,7 @@ export class ComestiblesComponent implements OnInit {
       // Emitir Sonido
       this.emitirSonido();
     }
+    this.ordenarComestibles();
   }
   emitirSonido() {
     this.music.pause();
@@ -89,4 +95,24 @@ export class ComestiblesComponent implements OnInit {
     this.music.play();
   }
 
+  emitirSonidoAgregarComestible() {
+    
+    this.musicAdd.pause();
+    this.musicAdd.currentTime = 0;
+    this.musicAdd.volume = 0.3;
+    this.musicAdd.play();
+  }
+  emitirSonidoeliminarComestible() {
+    this.musicError.pause();
+    this.musicError.currentTime = 0;
+    this.musicError.volume = 0.8;
+    this.musicError.play();
+  }
+
+  ordenarComestibles() {
+    this.groseries.sort( function(x, y) {   
+      return (x.completed === y.completed)? 0 : x.completed? -1 : 1;
+    })    
+    this.groseries.reverse();
+  }
 }
