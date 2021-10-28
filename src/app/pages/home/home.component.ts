@@ -106,10 +106,10 @@ export class HomeComponent implements OnInit {
 
   isCompleted( id: number ): string {
     if(this.tasks[id].completed) {
-      return 'completed';
+      return 'completed task';
     }
     else {
-      return '';
+      return 'task';
     }
   }
 
