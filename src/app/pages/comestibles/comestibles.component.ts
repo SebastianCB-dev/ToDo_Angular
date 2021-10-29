@@ -115,4 +115,14 @@ export class ComestiblesComponent implements OnInit {
     })    
     this.groseries.reverse();
   }
+
+  isCompleted( id: number ): string {
+    if(this.groseries[id].completed) {
+      return 'completed eatable';
+    }
+    else {
+      return 'eatable';
+    }
+  }
+
 }

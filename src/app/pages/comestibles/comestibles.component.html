@@ -18,7 +18,7 @@
          🤦‍♂️ {{ message }} 🤦‍♀️
     </div>
     <div class="groseries">
-        <div class="eatable"
+        <div [class]="isCompleted(i)"
             *ngFor="let eatable of groseries; let i = index">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
                    (click)="completarComestible(i)">

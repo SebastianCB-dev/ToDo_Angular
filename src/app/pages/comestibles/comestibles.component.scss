@@ -87,18 +87,36 @@
         margin-top: 50px;
         transition: all 300ms;
         user-select: none;
+        .completed {
+            background-color: rgba(0, 128, 0, 0.363) !important;
+            border-left: 12px solid rgb(0, 128, 0) !important;  
+            border-bottom: 2px solid #ccc !important; 
+            transition: all 300ms ease-in-out;            
+            p {
+                text-decoration: line-through;
+            }            
+        } 
         .eatable {
+            background-color: rgba(255, 230, 0, 0.363);
+            border-left: 12px solid rgb(255, 230, 0);            
             border-bottom: 2px solid #ccc;
             padding-left: 25px;
             padding-right: 25px;
             display: flex;
             justify-content: space-between;
-            margin-top: 15px;                
+            padding-top: 10px;
+            padding-bottom: 10px;   
+            .form-check-input {
+                background-color: #000;
+                border: 2px solid #ccc;
+            }                 
             .description {
                 width: 98%;    
                 display: flex; 
                 p {
                     overflow: hidden;
+                    margin-bottom: 0px;
+                    line-height: 35px;
                 }
                 i {
                     margin-left: auto;
@@ -109,12 +127,10 @@
                     font-size: 20px;
                     font-style: normal;
                     font-weight: bold;
-                    margin-bottom: 10px;
                 }
                 button {                    
                     margin-left: 25px;    
                     position: relative;
-                    top: -9px;
                     width: 50px;
                     height: 40px;
                     text-align: center;
@@ -128,6 +144,7 @@
             }
             input {
                 margin-right: 20px;
+                margin-top: 11px;
             }
 
         }
