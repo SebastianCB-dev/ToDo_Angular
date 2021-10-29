@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Eatable } from '../interfaces/interface';
+import { TaskService } from '../services/task.service';
 
 
 @Component({
@@ -60,12 +61,16 @@ export class ComestiblesComponent implements OnInit {
        completed: false
     });
     this.groseries.reverse();
+    this.TaskService.setGroseriesLocalStorage(this.groseries); 
     this.emitirSonidoAgregarComestible();
     this.input = '';
     this.amount = '1';
     this.idEatable++;    
   }
-  constructor() {    
+  constructor(
+    private TaskService: TaskService
+  ) {   
+    this.groseries = this.TaskService.getGroseriesLocalStorage(); 
   }
 
   ngOnInit(): void {
@@ -74,12 +79,14 @@ export class ComestiblesComponent implements OnInit {
 
   deleteEatable(id: number) {
     this.groseries.splice(id,1);
+    this.TaskService.setGroseriesLocalStorage(this.groseries); 
     this.emitirSonidoeliminarComestible();
   }
   completarComestible(id: number ){
     this.groseries[id].completed = !this.groseries[id].completed;
     if( this.groseries[id].completed ) {
       // Emitir Sonido
+      this.TaskService.setGroseriesLocalStorage(this.groseries); 
       this.emitirSonido();
     }
     this.ordenarComestibles();
