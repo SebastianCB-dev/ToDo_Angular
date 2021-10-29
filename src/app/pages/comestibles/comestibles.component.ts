@@ -32,7 +32,7 @@ export class ComestiblesComponent implements OnInit {
   addNewEatable() {
     this.showMain = true;
     if(this.input == '') {
-      this.message = 'Add a product!';
+      this.message = 'Add a product description!';
       this.isError = true;
       this.input = '';
       return;
