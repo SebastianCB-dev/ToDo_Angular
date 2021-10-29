@@ -7,7 +7,8 @@
       </div>
       <div class="mb-3 input-add" *ngIf="!showMain">
         <input [(ngModel)]="input" type="text" class="form-control input-task" placeholder="Do anything...">
-        <div class="options">          
+        <div class="options">   
+          <h6 class="letter-count">10</h6>       
           <input placeholder="📅" class="date-picker form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" [(ngModel)]="fechaPick"      
                   [min]="traerFecha()"/>                   
           <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="addNewTask()">Add ➕</button>
