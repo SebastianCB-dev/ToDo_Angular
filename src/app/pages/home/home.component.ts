@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Task } from '../interfaces/interface';
-
+import { TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-home',
@@ -48,18 +48,23 @@ export class HomeComponent implements OnInit {
        fecha: this.fechaPick,
        completed: false
     });
-    this.tasks.reverse();
+    this.tasks.reverse();  
+    this.taskService.setTasksLocalStorage(this.tasks);
     this.emitirSonidoAgregarTarea();
     this.input = '';
     this.fechaPick = '';
     this.idTask++;    
   }
-  constructor() {    
+
+  constructor(
+    private taskService: TaskService
+  ) {    
+    this.tasks = this.taskService.getTasksLocalStorage();
   }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {      
   }
+
 
   traerFecha() {
     return (new Date().getFullYear())+ '-' + (new Date().getMonth() + 1) + '-' +  (new Date().getDate());
@@ -68,6 +73,7 @@ export class HomeComponent implements OnInit {
 
   eliminarTarea(id: number) {
     this.tasks.splice(id,1);
+    this.taskService.setTasksLocalStorage(this.tasks);
     this.emitirSonidoeliminarTarea();
   }
 
@@ -77,10 +83,10 @@ export class HomeComponent implements OnInit {
       // Emitir Sonido
       this.emitirSonidoCompletarTarea();
     }
-    this.ordenarTareas();    
+    this.taskService.setTasksLocalStorage(this.tasks);
+    this.ordenarTareas();
   }
   emitirSonidoAgregarTarea() {
-    
     this.musicAdd.pause();
     this.musicAdd.currentTime = 0;
     this.musicAdd.volume = 0.3;
