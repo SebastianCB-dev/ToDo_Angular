@@ -1,10 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Eatable } from '../interfaces/interface';
 
-interface Eatable {
-  product: string;
-  amount : number;
-  completed: boolean;
-}
 
 @Component({
   selector: 'app-comestibles',

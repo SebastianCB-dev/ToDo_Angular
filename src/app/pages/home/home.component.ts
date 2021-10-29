@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from '../interfaces/interface';
 
-
-interface Task {
-  description: string,
-  fecha: string,
-  completed: boolean;
-}
 
 @Component({
   selector: 'app-home',
@@ -112,6 +107,7 @@ export class HomeComponent implements OnInit {
       return 'task';
     }
   }
+
 
   ordenarTareas() {
     this.tasks.sort( function(x, y) {   
