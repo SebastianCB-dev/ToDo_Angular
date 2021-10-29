@@ -11,7 +11,7 @@ export class SidebarComponent implements OnInit {
 
   username: string = 'User';
   @Output() userEmit = new EventEmitter<string>();
-  srcImage: SafeResourceUrl = 'https://www.pngrepo.com/png/133681/512/doormat.png';
+  srcImage: SafeResourceUrl = 'https://icons.veryicon.com/png/o/business/multi-color-financial-and-business-icons/user-139.png';
   isEditing: boolean = false;
   userEditing: string = '';
   file: string = '';
