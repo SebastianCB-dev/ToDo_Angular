@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Task } from '../interfaces/interface';
+import { SoundService } from '../services/sound.service';
 import { TaskService } from '../services/task.service';
 
 @Component({
@@ -50,14 +51,15 @@ export class HomeComponent implements OnInit {
     });
     this.tasks.reverse();  
     this.taskService.setTasksLocalStorage(this.tasks);
-    this.emitirSonidoAgregarTarea();
+    this.soundService.emitAdd();
     this.input = '';
     this.fechaPick = '';
     this.idTask++;    
   }
 
   constructor(
-    private taskService: TaskService
+    private taskService: TaskService,
+    private soundService: SoundService
   ) {    
     this.tasks = this.taskService.getTasksLocalStorage();
   }
@@ -74,35 +76,18 @@ export class HomeComponent implements OnInit {
   eliminarTarea(id: number) {
     this.tasks.splice(id,1);
     this.taskService.setTasksLocalStorage(this.tasks);
-    this.emitirSonidoeliminarTarea();
+    this.soundService.emitDelete();
   }
 
   completarTarea( id: number ){
     this.tasks[id].completed = !this.tasks[id].completed;
     if( this.tasks[id].completed ) {
       // Emitir Sonido
-      this.emitirSonidoCompletarTarea();
+      
+      this.soundService.emitCompleted();
     }
     this.taskService.setTasksLocalStorage(this.tasks);
     this.ordenarTareas();
-  }
-  emitirSonidoAgregarTarea() {
-    this.musicAdd.pause();
-    this.musicAdd.currentTime = 0;
-    this.musicAdd.volume = 0.3;
-    this.musicAdd.play();
-  }
-  emitirSonidoCompletarTarea() {
-    this.music.pause();
-    this.music.currentTime = 0;
-    this.music.volume = 0.3;
-    this.music.play();
-  }
-  emitirSonidoeliminarTarea() {
-    this.musicError.pause();
-    this.musicError.currentTime = 0;
-    this.musicError.volume = 0.8;
-    this.musicError.play();
   }
 
   isCompleted( id: number ): string {

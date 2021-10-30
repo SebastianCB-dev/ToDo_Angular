@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Eatable } from '../interfaces/interface';
 import { TaskService } from '../services/task.service';
+import { SoundService } from '../services/sound.service';
+import { ThrowStmt } from '@angular/compiler';
 
 
 @Component({
@@ -9,9 +11,6 @@ import { TaskService } from '../services/task.service';
   styleUrls: ['./comestibles.component.scss']
 })
 export class ComestiblesComponent implements OnInit {
-  music = new Audio('../../../assets/sounds/task_completed.mp3');
-  musicError = new Audio('../../../assets/sounds/delete.mp3');
-  musicAdd = new Audio('../../../assets/sounds/add.mp3');
   user: string = 'User';
   showMain: boolean = true;
   isError: boolean = false;
@@ -61,16 +60,17 @@ export class ComestiblesComponent implements OnInit {
        completed: false
     });
     this.groseries.reverse();
-    this.TaskService.setGroseriesLocalStorage(this.groseries); 
-    this.emitirSonidoAgregarComestible();
+    this.taskService.setGroseriesLocalStorage(this.groseries); 
+    this.soundService.emitAdd();
     this.input = '';
     this.amount = '1';
     this.idEatable++;    
   }
   constructor(
-    private TaskService: TaskService
+    private taskService: TaskService,
+    private soundService: SoundService
   ) {   
-    this.groseries = this.TaskService.getGroseriesLocalStorage(); 
+    this.groseries = this.taskService.getGroseriesLocalStorage(); 
   }
 
   ngOnInit(): void {
@@ -79,39 +79,19 @@ export class ComestiblesComponent implements OnInit {
 
   deleteEatable(id: number) {
     this.groseries.splice(id,1);
-    this.TaskService.setGroseriesLocalStorage(this.groseries); 
-    this.emitirSonidoeliminarComestible();
+    this.taskService.setGroseriesLocalStorage(this.groseries); 
+    this.soundService.emitDelete();
   }
   completarComestible(id: number ){
     this.groseries[id].completed = !this.groseries[id].completed;
     if( this.groseries[id].completed ) {
       // Emitir Sonido
-      this.TaskService.setGroseriesLocalStorage(this.groseries); 
-      this.emitirSonido();
+      this.taskService.setGroseriesLocalStorage(this.groseries); 
+      this.soundService.emitCompleted();
     }
     this.ordenarComestibles();
   }
-  emitirSonido() {
-    this.music.pause();
-    this.music.currentTime = 0;
-    this.music.volume = 0.3;
-    this.music.play();
-  }
-
-  emitirSonidoAgregarComestible() {
-    
-    this.musicAdd.pause();
-    this.musicAdd.currentTime = 0;
-    this.musicAdd.volume = 0.3;
-    this.musicAdd.play();
-  }
-  emitirSonidoeliminarComestible() {
-    this.musicError.pause();
-    this.musicError.currentTime = 0;
-    this.musicError.volume = 0.8;
-    this.musicError.play();
-  }
-
+  
   ordenarComestibles() {
     this.groseries.sort( function(x, y) {   
       return (x.completed === y.completed)? 0 : x.completed? -1 : 1;
