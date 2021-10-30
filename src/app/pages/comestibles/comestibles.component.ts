@@ -91,6 +91,7 @@ export class ComestiblesComponent implements OnInit {
       this.soundService.emitCompleted();
     }
     this.ordenarComestibles();
+    this.taskService.setGroseriesLocalStorage(this.groseries);
   }
   
   ordenarComestibles() {
