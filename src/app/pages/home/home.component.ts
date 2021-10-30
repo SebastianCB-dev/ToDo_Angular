@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Task } from '../interfaces/interface';
 import { SoundService } from '../services/sound.service';
 import { TaskService } from '../services/task.service';
@@ -9,9 +9,6 @@ import { TaskService } from '../services/task.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  music = new Audio('../../../assets/sounds/task_completed.mp3');
-  musicError = new Audio('../../../assets/sounds/delete.mp3');
-  musicAdd = new Audio('../../../assets/sounds/add.mp3');
   user: string = 'User';
   showMain: boolean = true;
   isError: boolean = false;

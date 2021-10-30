@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Eatable } from '../interfaces/interface';
 import { TaskService } from '../services/task.service';
 import { SoundService } from '../services/sound.service';
-import { ThrowStmt } from '@angular/compiler';
 
 
 @Component({
