@@ -6,7 +6,7 @@
         </button>
       </div>
       <div class="mb-3 input-add" *ngIf="!showMain">
-        <input [(ngModel)]="input" type="text" class="form-control input-eatable" placeholder="Any product...">
+        <input [(ngModel)]="input" type="text" class="f orm-control input-eatable" placeholder="Any product..." maxlength="99">
         <div class="options">  
           <h6 class="letter-count">{{ input.length }}</h6>           
           <input class="date-picker form-control" type="number" id="date" min=1 [(ngModel)]="amount" />                   

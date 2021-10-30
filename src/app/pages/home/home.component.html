@@ -6,7 +6,7 @@
         </button>
       </div>
       <div class="mb-3 input-add" *ngIf="!showMain">
-        <input [(ngModel)]="input" type="text" class="form-control input-task" placeholder="Do anything...">
+        <input [(ngModel)]="input" type="text" class="form-control input-task" placeholder="Do anything..." maxlength="99">
         <div class="options">   
           <h6 class="letter-count">{{ input.length }}</h6>       
           <input placeholder="📅" class="date-picker form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" [(ngModel)]="fechaPick"      
