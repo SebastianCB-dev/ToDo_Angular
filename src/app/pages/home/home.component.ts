@@ -18,6 +18,16 @@ export class HomeComponent implements OnInit {
   message: string = '';
   idTask: number = 0;
 
+  constructor(
+    private taskService: TaskService,
+    private soundService: SoundService
+  ) {    
+    this.tasks = this.taskService.getTasksLocalStorage();
+    this.ordenarTareas();
+  }
+
+  ngOnInit(): void {}
+  
   agregarTarea() {
     this.showMain = false;
     this.isError = false;
@@ -53,18 +63,6 @@ export class HomeComponent implements OnInit {
     this.fechaPick = '';
     this.idTask++;    
   }
-
-  constructor(
-    private taskService: TaskService,
-    private soundService: SoundService
-  ) {    
-    this.tasks = this.taskService.getTasksLocalStorage();
-    this.ordenarTareas();
-  }
-
-  ngOnInit(): void {      
-  }
-
 
   traerFecha() {
     return (new Date().getFullYear())+ '-' + (new Date().getMonth() + 1) + '-' +  (new Date().getDate());

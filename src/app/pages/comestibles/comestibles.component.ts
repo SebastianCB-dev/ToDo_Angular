@@ -9,7 +9,7 @@ import { SoundService } from '../services/sound.service';
   templateUrl: './comestibles.component.html',
   styleUrls: ['./comestibles.component.scss']
 })
-export class ComestiblesComponent implements OnInit {
+export class ComestiblesComponent {
   user: string = 'User';
   showMain: boolean = true;
   isError: boolean = false;
@@ -18,6 +18,15 @@ export class ComestiblesComponent implements OnInit {
   amount: string = '1';
   message: string = '';
   idEatable: number = 0;
+
+  constructor(
+    private taskService: TaskService,
+    private soundService: SoundService
+  ) {   
+    this.groseries = this.taskService.getGroseriesLocalStorage(); 
+    this.ordenarComestibles();
+  }
+
 
   addEatable() {
     this.showMain = false;
@@ -64,17 +73,6 @@ export class ComestiblesComponent implements OnInit {
     this.input = '';
     this.amount = '1';
     this.idEatable++;    
-  }
-  constructor(
-    private taskService: TaskService,
-    private soundService: SoundService
-  ) {   
-    this.groseries = this.taskService.getGroseriesLocalStorage(); 
-    this.ordenarComestibles();
-  }
-
-  ngOnInit(): void {
-    
   }
 
   deleteEatable(id: number) {
