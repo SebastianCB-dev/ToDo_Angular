@@ -62,6 +62,7 @@ export class HomeComponent implements OnInit {
     private soundService: SoundService
   ) {    
     this.tasks = this.taskService.getTasksLocalStorage();
+    this.ordenarTareas();
   }
 
   ngOnInit(): void {      

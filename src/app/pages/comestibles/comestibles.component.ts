@@ -71,6 +71,7 @@ export class ComestiblesComponent implements OnInit {
     private soundService: SoundService
   ) {   
     this.groseries = this.taskService.getGroseriesLocalStorage(); 
+    this.ordenarComestibles();
   }
 
   ngOnInit(): void {

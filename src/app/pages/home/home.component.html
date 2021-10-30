@@ -23,7 +23,8 @@
         <div [class]="isCompleted(i)"
             *ngFor="let task of tasks; let i = index">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"                  
-                  (click)="completarTarea(i)">
+                  (click)="completarTarea(i)"
+                  [checked]="task.completed">
             <div class="description">
                 <p>{{ task.description }}</p>
                 <i>{{ task.fecha }}</i>
