@@ -2,7 +2,8 @@ aside {
     width: 50px;
     background-color: #000;
     border-radius: 0px 12px 12px 0px;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     margin-right: 40px;
     transition: all 300ms;
     overflow: hidden;
@@ -63,6 +64,9 @@ aside {
             transition: all 300ms;
         }
         
+    }
+    .option-car:last-child {
+        margin-bottom: 70px;
     }
     .option-car:hover {
         border: 2px solid #ccc;

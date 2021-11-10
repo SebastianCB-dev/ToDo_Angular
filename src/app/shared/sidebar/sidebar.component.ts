@@ -22,7 +22,7 @@ export class SidebarComponent implements OnInit {
   }
   
  guardarOptions() {
-      if(this.userEditing.length != 0) {
+      if(this.userEditing.length != 0 && this.userEditing.length <= 10) {
         this.username = this.userEditing;
         this.userEmit.emit(this.username);        
         this.userEditing = '';
