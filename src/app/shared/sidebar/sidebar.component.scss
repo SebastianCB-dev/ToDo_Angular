@@ -1,3 +1,6 @@
+.button-responsive-menu {
+    display: none;
+}
 aside {
     width: 50px;
     background-color: #000;
@@ -73,6 +76,9 @@ aside {
         border-radius: 12px;   
         background-color: #1A1B1C;     
     }
+    .close {
+        display: none;
+    }
     .edition {
         width: 90%;
         margin: 0px auto;
@@ -97,8 +103,7 @@ aside:hover {
     width: 300px;
     .user-image {
         width: 100px;
-        height: 100px;
-        
+        height: 100px;   
     }
     p {
         display: block;
@@ -117,5 +122,65 @@ aside:hover {
     }
     .edition {
         opacity: 1;
+    }
+}
+
+@media(max-width: 1024px) {
+    .button-responsive-menu {
+        display: block;
+        position: relative;
+        top: 10px;
+        left: 10px;
+
+    }
+    aside{
+        width: 100%;
+        opacity: 1;
+        position: absolute;
+        z-index: 100000;
+        display: none; 
+        .user-image {
+            width: 130px;
+            height: 130px;   
+        }
+        p {
+            display: block;
+            opacity: 1;
+            font-size: 30px;
+        }
+        button {
+            opacity: 1;
+            margin-bottom: 40px;
+        }
+        .option-car {
+            width: 200px;
+            img {
+                margin-left: 20px;
+            }
+            h5 {
+                opacity: 1;
+            }
+        }
+        .close {
+            display: block;
+            margin-top: 60px;
+        }
+        .edition {
+            opacity: 1;
+        }
+        .edition {
+            width: 500px;
+           input {
+               width: 500px;
+               margin: 0px auto;
+           }
+        }
+    }
+    aside:hover {
+        width: 100%;
+        .user-image {
+            width: 130px;
+            height: 130px;   
+        }
     }
 }

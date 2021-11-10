@@ -133,13 +133,16 @@
                 p {
                     overflow: hidden;
                     margin-bottom: 0px;
-                    line-height: 35px;
+                    line-height: 39px;
+                    width: 70%;                    
+                    line-break: anywhere;
                 }
                 i {
                     margin-left: auto;
                     height: fit-content;
                     margin-top: auto;
                     margin-bottom: auto;
+                    color: #CCC;
                 }
                 button {                    
                     margin-left: 25px;    
@@ -157,7 +160,8 @@
             }
             input {
                 margin-right: 20px;
-                margin-top: 11px;
+                margin-top: auto;
+                margin-bottom: auto;
             }
 
         }
@@ -171,4 +175,43 @@
         }
         
     }
+}
+
+@media(max-width: 1136px) {
+    .main {
+        width: 96%;
+     .tasks {
+         .description {
+             p {
+                 width: 70% !important;
+             }
+         }
+     }   
+    }
+}
+
+@media(max-width: 1082px) {
+    .main {      
+     .tasks {
+         .description {
+             i {
+                 width: 96px !important;
+                 text-align: center;
+                 margin-left: 20px auto !important;
+             }
+         }
+     }   
+    }
+}
+
+@media(max-width: 1024px){
+    .main {      
+        .tasks {
+            .description {
+                button {
+                   opacity: 1 !important;
+                }
+            }
+        }   
+       }
 }

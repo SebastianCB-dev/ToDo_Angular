@@ -8,9 +8,23 @@
         padding: 0px;   
         .task {
             width: 95%;
+            margin: 0px auto;
         }
     }
 }
-    
+  
+@media( max-width: 1024px ) {
+    .general {
+        .container-flex {
+            display: block;
+            .sidebar {
+                width: 100%;
+            }
+            .task {
+                display: block;
+            }
+        }
+    }
+}
     
     
