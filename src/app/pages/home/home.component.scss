@@ -215,3 +215,51 @@
         }   
        }
 }
+@media(max-width:600px) {
+
+       .main {      
+        .tasks {
+            .description {
+               i {
+                   font-size: 13px;
+               }
+            }
+        }   
+       }                                                                                               
+}
+
+
+@media(max-width: 400px ) {
+    .main {
+        .tasks {
+            .task {
+                width: 100%;
+                display: block;   
+                input {
+                    display: block;                    
+                    margin: 0px auto;
+                }             
+                .description {
+                    display: block;
+                    width: 100%;
+                    p {
+                        width: 100% !important;
+                        text-align: center;
+                    }
+                    i {
+                        display: block;
+                        width: 100% !important;
+                        text-align: center;
+                        font-size: 18px;
+                    }
+                    button {
+                        display: block;
+                        width: 200px;
+                        margin: 0px auto;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

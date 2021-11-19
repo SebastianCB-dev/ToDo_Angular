@@ -22,3 +22,16 @@
     }
 
 }
+
+@media(max-width: 543px) {
+    .main {
+        .welcome-user {
+            h3 {
+                
+            }
+            i {
+                display: block;
+            }
+        }
+    }
+}
