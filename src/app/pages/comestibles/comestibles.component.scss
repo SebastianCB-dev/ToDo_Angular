@@ -180,3 +180,98 @@
         
     }
 }
+
+@media( max-width: 1327px ) {
+
+    .main {
+        .groseries {
+            .eatable {
+                .description {
+                    p {
+                        width: 70%;                    
+                        line-break: anywhere;
+                    }
+                }
+            }
+        }
+    }
+   
+}
+
+@media(max-width: 1024px) {
+    .main {      
+        .groseries {
+            .description {
+                button {
+                   opacity: 1 !important;
+                }
+            }
+        }   
+       }
+}
+
+@media(max-width: 720px ) {
+    .main {
+        .groseries {
+            .eatable {
+                .description {
+                    p {
+                        width: 60%;                    
+                        line-break: anywhere;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 560px ) {
+    .main {
+        .groseries {
+            .eatable {
+                .description {
+                    p {
+                        width: 50%;                    
+                        line-break: anywhere;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 500px ){
+    .main {
+        .groseries {
+            .eatable {
+                width: 100%;
+                display: block;   
+                input {
+                    display: block;                    
+                    margin: 0px auto;
+                }             
+                .description {
+                    display: block;
+                    width: 100%;
+                    p {
+                        width: 100% !important;
+                        text-align: center;
+                    }
+                    i {
+                        display: block;
+                        width: max-content !important;
+                        margin: 0px auto;
+                        text-align: center;
+                        font-size: 18px;
+                    }
+                    button {
+                        display: block;
+                        width: 90%;
+                        margin: 0px auto;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
