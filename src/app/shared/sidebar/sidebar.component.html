@@ -11,7 +11,7 @@
             (click)="modeEditionProfile()">Edit ✏️</button>
     <div class="edition"
         *ngIf="isEditing">
-      <label>Name: </label>
+      <label>Name (max 10): </label>
       <input [(ngModel)]="userEditing"
              type="text"
              class="form-control">
